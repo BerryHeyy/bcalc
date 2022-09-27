@@ -1,6 +1,6 @@
-#include "main_window.hpp"
+#include "programmer_window.hpp"
 
-MainWindow::MainWindow()
+ProgrammerWindow::ProgrammerWindow()
 {
     // Set window stuff
     set_title("bcalc");
@@ -8,13 +8,19 @@ MainWindow::MainWindow()
 
     Gtk::Grid* grid = Gtk::make_managed<Gtk::Grid>();
 
+    Gtk::Button digitButtons[10],
+        additionButton,
+        subtractionButton,
+        commaButton,
+        negateButton;
+
     // Create digit buttons
     for (int i = 0; i < 10; i++)
     {
         Gtk::Label* bLabel = Gtk::make_managed<Gtk::Label>(std::to_string(i));
         
         digitButtons[i].set_child(*bLabel);
-        digitButtons[i].signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::digit_pressed), i));
+        digitButtons[i].signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &ProgrammerWindow::digit_pressed), i));
 
         int column = i == 0 ? 1 : (i - 1) % 3;
         int row = i == 0 ? 3 : 2 - (i - 1) / 3;
@@ -32,7 +38,7 @@ MainWindow::MainWindow()
     set_child(*grid);
 }
 
-void MainWindow::digit_pressed(int id)
+void ProgrammerWindow::digit_pressed(int id)
 {
     
 }

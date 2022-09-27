@@ -22,8 +22,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GTKMM_INCLUDE} ${GTKMM_LIBS}")
 
 set(SOURCES
     bcalc.cpp
-    main_window.hpp
-    main_window.cpp
+    programmer_window.hpp
+    programmer_window.cpp
     util.hpp
     util.hpp
 )
