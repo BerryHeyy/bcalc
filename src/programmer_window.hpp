@@ -22,9 +22,13 @@ private:
 
     Gtk::Label currentValueLabel;
 
+    int widgetHeight;
+    int widgetWidth;
+
     void digit_pressed(int id);
     void operator_pressed(int id);
-
+    
+    void configure_callback();
 };
 
 #endif

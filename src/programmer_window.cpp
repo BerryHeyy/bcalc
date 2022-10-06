@@ -2,6 +2,7 @@
 
 ProgrammerWindow::ProgrammerWindow()
 {
+    widgetWidth = 20; widgetHeight = 40;
     currentValue = 0;
 
     // Set window stuff
@@ -11,6 +12,7 @@ ProgrammerWindow::ProgrammerWindow()
     Gtk::Grid* grid = Gtk::make_managed<Gtk::Grid>();
     
     currentValueLabel.set_text(std::to_string(currentValue));
+    currentValueLabel.set_halign(Gtk::Align::END);
 
     // Create buttons
     for (int i = 0; i < 10; i++)
@@ -38,6 +40,9 @@ ProgrammerWindow::ProgrammerWindow()
     vbox->set_orientation(Gtk::Orientation::VERTICAL);
     vbox->append(currentValueLabel);
     vbox->append(*grid);
+
+    vbox->set_halign(Gtk::Align::CENTER);
+    vbox->set_valign(Gtk::Align::CENTER);
 
     set_child(*vbox);
 
